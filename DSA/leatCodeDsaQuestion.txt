@@ -1,0 +1,56 @@
+1. Two Sum
+Easy
+41.4K
+1.3K
+Companies
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+ans = https://leetcode.com/problems/two-sum/description/
+
+2)  Longest Substring Without Repeating Characters
+
+ans - https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+
+
+3)   Median of Two Sorted Arrays
+Hard
+21.6K
+2.4K
+Companies
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+ans - https://leetcode.com/problems/median-of-two-sorted-arrays/description/
+
+4)
+5)
+6)
+7)
+8)
+9)
+10)
+11)
+12)
+13)
+14)
+15)
+16)
+17)
+18)
+19)
+20)
+21)
+22)
+23)
+24)
+25)
+26)
+27)
+28)
+29)
+30)

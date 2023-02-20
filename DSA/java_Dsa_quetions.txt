@@ -1,0 +1,1374 @@
+******************************************************************************************************
+Question 1)
+a and b only Ended
+Description
+
+You are given a string S that contains 3 characters: 'a', 'b', and '?'. Your task is to convert it to a string which contains only 2 characters: 'a', 'b'. The converted string must follow following conditions:
+
+1. It should not contains two letters 'a' in a row.
+
+2. if there are many strings possible, the answer should be one which is the first in alphabetical order
+
+(Read sample test case for better understanding)
+
+******************************************************************************************************
+Question 2)
+Ash and his Redemption Ended
+Description
+
+Ash is a famous player in the Pokemon universe. He has been trying to defeat his strongest rival Gary but he hasn't been successful till yet. He has played with Gary so much that he now knows everything about Gary and his pokemon and feels he is ready for one more fight.
+
+Both players have n pokemon and n rounds are going to be played where one pokemon from each team fight with each other.
+
+Each pokemon have their health points known as HP.
+
+Gary is a champion so he gets an advantage. Ash wins a round when Ash's pokemon has strictly greater HP than Gary's else he loses that round. Ash wins the match if he wins all the rounds.
+
+Since he knows everything about his rival, he knows the order of Gary's pokemon and their initial HP.
+
+Can Ash order his pokemon in order to win the match?
+
+Print "Ash Finally Wins" if he wins the match else "Train Hard Again".
+
+******************************************************************************************************
+Quetion 3)
+Minimum Platforms Required Ended
+Description
+
+Given arrival and departure times of all trains that reach a railway station, the task is to find the minimum number of platforms required for
+ the railway station so that no train waits.
+
+******************************************************************************************************
+QUetion 4)
+
+
+Lazy Sherlock -48:14:56
+Description
+
+Sherlock is an intelligent detective but he is too lazy. He wants to buy a new suit for the upcoming event at Buckingham Palace. He has all types of currency notes and has no shortage of any currency. The notes have the denomination values as 2000,2000,500, 200,200,100, 50,50,20, 10,10,5, 2 and2and1.
+
+There are n shops located in his neighborhood and he knows the prices of the coat each shop is selling at. He wants to carry the minimum number of currencies with him to buy the suit as he is too lazy. As he has no shortage of money, he won't think about the prices of the coat but in case of a tie, he will choose a shop which is selling at a lesser amount because he is smart too.
+
+
+
+
+******************************************************************************************************
+Question 5)
+Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+
+The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in O(n) time and without using the division operation
+
+
+******************************************************************************************************
+Question 6)
+All Twice Except One II 
+Description
+
+You are given a numberN, and an array such that the array contains all the numbers from 1 to N including N twice, except for one, which is present only once
+
+
+
+
+******************************************************************************************************
+Question 7)
+
+Nearest Smaller Element Ended
+Description
+
+You are given an array A of size N. For each element, in the array find the closest element with a smaller value, than the current value. If no such element exists, print -1. 
+If two values are equidistant to the current value, print the one that occurs to the left of it. Refer the sample I/O for better understanding.
+
+******************************************************************************************************
+Question 8)
+Ordering the process. Ended
+Description
+
+You are the operations manager of Masai School, and N number of processes have to be executed by you.All the processes have a unique number assigned to them from1 to N.
+
+You are given two arrays :
+
+The first array denotes the calling order, in which the processes are being started.
+The second array denotes theidealorder in which all the processes should have been executed.
+
+
+Note : Executing a process, or changing the position takes 1 unit of time.
+
+******************************************************************************************************
+Question 9)
+Dr. Strange and Possibilities II Ended
+Description
+
+Dr. Strange is back again and this time he has an array A with n integers which may have duplicates. 
+So he again uses his mind power and time stone to calculate all the possible subsets of the input array A. Generate all the possible subsets.
+
+******************************************************************************************************
+Question 10)
+Mr Robot - Elliot Ended
+Description
+
+Mr.Robot needs an encryption method, so Elliott was there to help him. At the same time, Richard wrote a paper on encryption. Elliott then started writing his algorithms with the help of paper from Richard but he needs your help in implementing. 
+The algorithm is like this:
+
+Given an input string, the encrypted string will start with the middle character of the string and will be formed henceforth with the middle characters of the left and right substrings (of the middle character of the word) and so on. Take a look at the explanation of the sample test case for better understanding.
+
+******************************************************************************************************
+Question 11)
+
+
+Follow The Knight Ended
+Description
+
+You are very good at playing chess since childhood and you knew the rules very much. You have a  10 X 10 chessboard and you want to explore all the possible squares on the board that the knight can be at in exactly N moves.It is placed at (i,j) coordinate initially. For a 10X10 chessboard (1,1) will be the top left corner and (10,10) will be the bottom right corner.
+
+You can refer the following diagram, the knight can move to any of the squares marked as X in 1 move.
+******************************************************************************************************
+Question 12)
+
+Triplets with sum Zero Ended
+Description
+
+You are given an array A of size N.
+
+You need to count all triplets i,j,k, such that 0<=i < j < k <= N-1 and A[i]+A[j]+A[k]=0
+
+******************************************************************************************************
+Question 13)
+Equilibrium Element Ended
+Description
+
+Given an array A of N positive numbers. The task is to find the position where equilibrium first occurs in the array.
+ Equilibrium position in an array is a position such that the sum of elements before it is equal to the sum of elements after it.
+
+******************************************************************************************************
+Question 14)
+
+152. Maximum Product Subarray
+Medium
+
+13414
+
+400
+
+Add to List
+
+Share
+Given an integer array nums, find a contiguous non-empty subarray within the array that has the largest product, and return the product.
+
+The test cases are generated so that the answer will fit in a 32-bit integer.
+
+A subarray is a contiguous subsequence of the arra
+
+******************************************************************************************************
+Question 15)
+
+Again a classical problem Ended
+Description
+
+A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
+
+Two brackets are considered to be a matched pair if the opening bracket (i.e., (, [, or {) occurs to the left of a closing bracket (i.e., ), ], or }) of the exact same type.
+ There are three types of matched pairs of brackets: [], {}, and ().
+
+******************************************************************************************************
+Question 16)
+How much rain water is trapped? Ended
+Description
+
+Givennnon-negative integers representing an elevation map where the width of each bar is 1, calculate how much rain water will be trapped after it rains.
+******************************************************************************************************
+Question 17)
+
+Reverse the Linked List Ended
+Description
+
+Given the pointer to the head node of a linked list, change thepointers of the nodes so that their order is reversed. The head pointer given may be null meaning that the initial list is empty.
+
+Complete thereversefunction in the editor below.
+
+******************************************************************************************************
+Question 18)
+Linked List Cycle Ended
+Description
+
+Givenhead, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following thenextpointer. 
+Internally,posis used to denote the index of the node that the tail'snextpointer is connected to.
+
+******************************************************************************************************
+Question 19)
+Merge two Linked Lists Ended
+Description
+
+Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
+
+Complete the function below and return the head of the new linked list.
+
+******************************************************************************************************
+Question 20)
+Middle Node Ended
+Description
+
+Given a non-empty, singly linked list with the head nodehead, return a middle node of the linked list.
+
+If there are two middle nodes, return the second middle node.
+
+******************************************************************************************************
+Question 21)
+Two sum Ended
+Description
+
+Given a sorted array of integers, return indices of two numbers such that they add up to a target value.
+
+Print -1 -1 if not found.
+
+
+******************************************************************************************************
+Question 22) oj link - https://oj.masaischool.com/contest/5174/problems
+Preorder Traversal -24:52:11
+Description
+
+Given therootof a binary tree, return the preordertraversal of its node's values.
+
+You have to complete the function below.You'll be given the pointer to the root of the binary search tree.
+There's no need to take any input. Return an array with thepreorder traversal
+
+******************************************************************************************************
+Question 23) oj link - https://oj.masaischool.com/contest/5174/problems
+Postorder Traversal -24:51:38
+Description
+
+Given therootof a binary tree, return the postordertraversal of its nodes' values.
+
+You have to complete the function below.You'll be given the pointer to the root of the binary search tree.There's no need to take any input. Return the array withthe
+
+******************************************************************************************************
+Question 24)  oj link - https://oj.masaischool.com/contest/5174/problems
+Inorder Traversal -24:51:5
+Description
+
+Given therootof a binary tree, return the inordertraversal of its nodes' values.
+
+You have to complete the function below.You'll be given the pointer to the root of the binary search tree.There's no need to take any input. Return the array with the inordertraversal of its nodes' values.
+
+
+
+******************************************************************************************************
+Question 25)
+oj link - https://oj.masaischool.com/contest/5174/problems
+Level Order Traversal -13:24:22
+Description
+
+Given a binary tree, return the level ordertraversal ofits nodes' values. (ie, from left to right, level by level).
+
+You have to complete the function below.You'll be given the pointer to the root of the binary tree.
+******************************************************************************************************
+Question 26)
+oj link - https://oj.masaischool.com/contest/5174/problems
+Left Side View -3:50:38
+Description
+
+Given a binary tree, imagine yourself standing on the left sideof it, return the values of the nodes you can see ordered from top to bottom.
+
+You have to complete the function below.You'll be given the pointer to the root of the binary tree.There's no need to take any input. Return an array that contains the left side view, from the top (root) to bottom.
+
+
+******************************************************************************************************
+Question 27)
+how to create a Graph using list<>?//just for understanding
+
+******************************************************************************************************
+Question 28)
+//using normal HashSet<>
+Let's buy some houses -24:57:39
+Description
+
+You just won a lottery and you want to spend some money. So, you want to buy some houses.
+
+There is just one condition:
+
+To buy two houses, you need to buy the road connecting those two houses. Now, you are given a list of roads, bought by you. You need to tell how many houses will you end up buying?
+
+
+
+
+******************************************************************************************************
+Question 29)
+Number of ways problems Returns -96:54:52
+Description
+
+Sandhya is running up a staircase with N steps, and can hop(jump) either 1 step, 2 steps or 3 steps at a time. You have to count, how many possible ways Sandhya can run up to the stairs.
+
+
+
+
+******************************************************************************************************
+***Question 30)
+Koramangala to BTM Ended
+Description
+
+You are in Koramangala and want to go to BTM 2nd Stage, but roads are blocked. Instead there are n trampolines kept on the route. These trampoline are different in a way that you don't just jump on it, but it takes you forward as well. There is a number written on all the trampolines that indicates the maximum number of trampoline you can jump from there.
+
+NOTE: The last trampoline is in BTM 2nd stage (where you want to reach)
+
+For instance, assume there are 6 trampolines with numbers 1,3,6,1,0,9 written on it. So, from first trampoline you can jump at most 1 trampoline and move to second trampoline with number 3, from which you can take a jump of at max 3 trampolines, that is, you can go to 3rd, 4th or the 5th trampoline..so on..
+
+So, in this case, you can reach to BTM in just 3 steps: (1 -> 3 -> 6 -> last(9))
+
+******************************************************************************************************
+Question 31)
+
+Unique ways of Coin Change Ended
+Description
+
+Given an array, A of m denominations of coins and given an amount n, find a number of unique ways to make the change from the given coin types.
+
+Read the sample input explanation for better understanding.
+
+******************************************************************************************************
+Question 32)
+
+DpNation - is it a subsequence Ended
+Description
+
+Given two strings, s1 and s2, you need to print YES if s1 is a subsequence of s2 else NO.
+
+******************************************************************************************************
+Question 33)
+
+DpNation - find the max contiguous subarray Ended
+Description
+
+you are given an integerarray, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+
+
+******************************************************************************************************
+***Question 34)
+Money vs Boss Ended
+Description
+
+You are very low on budget and want to spend minimum amount possible.
+
+You are going for a meeting with your boss and to reach there you have to climb a flight of stairs, but there is a catch.
+
+When you reach a stair, to go up from there you have to pay the price written on that stair and after that you have two options:
+
+You can go from step i to step i+1 or
+
+You can go from step i to step i+2
+
+Your boss also gives you an option, i.e. you can start from the stair at index 0 or index 1
+
+You are given an integer array cost where cost[i] is the cost of ith step on a staircase.
+
+******************************************************************************************************
+Question 35)
+
+Angry Employees -37:11:22
+Description
+
+United Share Corp. has N seats for its employees. All the N seats  are located in a straight line at position  x1,x2,..xN
+
+The company has only C employees and they don't like each other. To prevent the employees from arguing each other, United Share Corp. wants to assign the employees to the seats, such that the minimum distance between any two of them is as large as possible.
+
+Your task is to write a program that calculates the largest minimum distance
+
+******************************************************************************************************
+Question 36)
+
+DpNation - Robbing Houses 2 Ended
+Description
+
+Robbery is pretty common in dp nation.
+
+A robber is planning to rob houses along a street. Each house has a certain amount of gold stashed, the only constraint stopping you from robbing each of them is that adjacent houses have a very smart security system connected andit will automatically alert the police if two adjacent houses were robbed  on the same night.
+
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money the roober can rob tonightwithoutgetting caugh
+
+******************************************************************************************************
+Question 37)
+
+Spirals and Diagonals Ended
+Description
+
+You are given an integer n. The next line is an array A which contains n*n elements. The spiral traversal of a square matrix of dimension (n x n) results in the given array.
+
+Calculate the sum of all elements which are on the diagonals of the square matrix.
+
+The matrix traversal happens in the manner shown in the image below
+
+
+
+******************************************************************************************************
+Question 38)  https://oj.masaischool.com/contest/5736/problem/01
+
+Element in the middle Ended
+Description
+
+Given an unsorted array of size, N. Find the first element in the array such that all of its left elements are smaller and all right elements to it are greater than it.
+
+Note: Left and right side elements can be equal to the required element. And extreme elements cannot be required element
+******************************************************************************************************
+Question 39) https://oj.masaischool.com/contest/5736/problem/04
+
+Cipher String Ended
+Description
+
+You are given a string of size N. You have to convert the string into its cipher form.
+
+For example, the cipher form of a string "aabccd", will be "a2b1c2d1". The new generated string contains the characters, and the count of their occurrences in a consecutive manner.
+
+Note: The string contains only lower-case characters.
+
+******************************************************************************************************
+Question 40)
+
+String Sorting Ended
+Description
+
+You have a binary string S of length N. In one operation you can select a substring of S and reverse it. For example, on reversing the substring S[2,4] for S=11000, we change 11000→10010.
+
+Find the minimum number of operations required to sort this binary string.
+
+It can be proven that the string can always be sorted using the above operation finite number of times.
+
+******************************************************************************************************
+Question 41)
+
+Generate Permutations Ended
+Description
+
+Given a collection of numbers, return all possible permutations.
+
+NOTE:
+
+No two entries in the permutation sequence should be the same.
+
+For the purpose of this problem, assume that all the numbers in the collection are unique.
+
+USING BUILT-IN LIBRARY FUNCTION TO PERMUTE WILL LEAD TO DISQUALIFICATION
+
+******************************************************************************************************
+Question 42)
+
+
+2. Add Two Numbers
+Medium
+23.6K
+4.6K
+Companies
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+
+******************************************************************************************************
+Question 43)
+3. Longest Substring Without Repeating Characters
+Medium
+31.4K
+1.4K
+Companies
+Given a string s, find the length of the longest 
+substring
+ without repeating characters.
+
+ 
+
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+******************************************************************************************************
+Question 44)
+
+4. Median of Two Sorted Arrays
+Hard
+21.6K
+2.4K
+Companies
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+******************************************************************************************************
+Question 45)
+******************************************************************************************************
+Question 46)
+******************************************************************************************************
+Question 47)
+******************************************************************************************************
+Question 48)
+******************************************************************************************************
+
+Question 49)
+******************************************************************************************************
+Question 50)
+******************************************************************************************************
+Question 51)
+
+******************************************************************************************************
+Question 52)
+
+
+******************************************************************************************************
+Question 53)
+
+
+******************************************************************************************************
+Question 54)
+
+******************************************************************************************************
+Question 55)
+
+******************************************************************************************************
+Question 56)
+
+
+******************************************************************************************************
+Question 57)
+
+******************************************************************************************************
+Question 58)
+
+
+******************************************************************************************************
+Question 59)
+
+******************************************************************************************************
+Question 60)
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+v
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+v******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+v
+******************************************************************************************************
+
+******************************************************************************************************
+
+v
+v
+******************************************************************************************************

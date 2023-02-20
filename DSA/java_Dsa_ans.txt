@@ -1,0 +1,3288 @@
+******************************************************************************************************
+
+Ans 1) 
+
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+
+    
+	public static void main(String[] args){
+   	 
+    	Scanner input = new Scanner(System.in) ;
+   	  String str = input.next() ;
+   	//   System.out.println(str.charAt(0)) ;
+    for(int i =0 ;i<str.length() ;i++){
+        if(i == 0 && str.charAt(i) == '?'){
+            if(str.charAt(i+1) == 'b' || str.charAt(i+1) == '?'){
+                str = str.substring(0, i) + 'a'
+              + str.substring(i + 1);
+ 
+            }
+            else if(str.charAt(i+1) == 'a'){
+                str = str.substring(0, i)+'b'
+                     + str.substring(i+1) ;
+            }
+            
+        }else if(i == str.length()-1 && str.charAt(i) == '?'){
+            if(str.charAt(i-1) == 'b'){
+                
+                str = str.substring(0,i) + 'a' + str.substring(i+1) ;
+            }
+            else{
+                // str.setcharAt(i,'b') ;
+                str = str.substring(0,i) + 'b' + str.substring(i+1) ;
+            }
+        }
+        else{
+            if(str.charAt(i) == '?' ){
+                if(str.charAt(i+1) == 'a' || str.charAt(i-1)== 'a'){
+                    // str.setcharAt(i,'b');
+                    str = str.substring(0,i) + 'b' + str.substring(i+1) ;
+                }
+                else{
+                    // str.setcharAt(i,'a') ;
+                    str = str.substring(0,i) + 'a' +str.substring(i+1) ;
+                }
+                
+            }
+            
+            
+            
+        }
+        
+    }
+  
+    System.out.println(str) ;
+   	    
+   	 
+    
+	}
+}
+******************************************************************************************************
+ans 2)
+
+import java.util.* ;
+import java.lang.* ;
+import java.io.* ;
+
+class Main{
+    
+    public static void check(int n,int[] arr1, int[] arr2){
+        Arrays.sort(arr1) ;
+        Arrays.sort(arr2) ;
+        //   System.out.println(Arrays.toString(arr1)) ;
+        //   System.out.println(Arrays.toString(arr2)) ;
+        for(int i=0 ; i < n ;i++){
+            if(arr1[i]<=arr2[i]){
+                System.out.println("Train Hard Again") ;
+                // System.out.println(i) ;
+                return ;
+                
+            }
+        }
+        System.out.println("Ash Finally Wins") ;
+        return ;
+    }
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in) ;
+        int tc = input.nextInt() ;
+        while(tc-- != 0 ){
+            int n = input.nextInt() ;
+            // System.out.println(n) ;
+            int[] arr1 = new int[n] ;
+            for(int i= 0 ;i<n ;i++) arr1[i] = input.nextInt() ;
+         int[] arr2 = new int[n] ;
+          for(int i= 0 ;i<n ;i++) arr2[i] = input.nextInt()  ;
+        check(n,arr1,arr2) ;
+        }
+    }
+}
+******************************************************************************************************
+ans 3)
+import java.util.* ;
+import java.io.* ;
+import java.util.stream.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    public static List<Integer> remove(String str,char c){
+        
+        for(int i=0 ;i<str.length() ;i++){
+            if(str.charAt(i)==':' ){
+                str = str.substring(0,i)+""+str.substring(i+ 1) ;
+            }
+        }
+        List<Integer> arr =  Stream.of(str.trim().split(" ")).map(Integer::parseInt) 
+                                               .collect(Collectors.toList() );
+                return arr ;
+    }
+    
+    public static void platReq(String str1,String str2,int n){
+        List<Integer> arr1 =  remove(str1,':') ;
+        List<Integer> arr2 = remove(str2,':') ;
+        
+        Collections.sort(arr1) ;
+        Collections.sort(arr2) ;
+        // System.out.println(arr1) ;
+        // System.out.println(arr2) ;
+        int max = - 1; 
+        int count = 0 ;
+       int ar = 0 ;
+       int dep = 0 ;
+       while(ar<arr1.size() && dep<arr2.size() ){
+           if(arr2.get(dep)>arr1.get(ar) ){
+        //           System.out.println(arr2.get(ar)) ;
+        // System.out.println(arr1.get(dep)) ;
+               count++ ;
+               ar++ ;
+           }
+           else{
+               count-- ;
+              
+               dep++ ;
+           }
+           if(max<count){
+               max = count ;
+           }
+       }
+       
+        System.out.println(max) ;
+        
+       
+    }
+    
+    public static void main(String[] args ) throws IOException{
+            BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in) ) ;
+            try{
+                int n = Integer.parseInt(bfr.readLine().trim()) ;
+           
+           String arr1 = bfr.readLine().trim() ;
+           String arr2 = bfr.readLine().trim() ;
+           platReq(arr1,arr2,n) ;
+            }
+           catch(IOException e){
+               throw new RuntimeException(e) ;
+           }
+           
+    }
+}
+******************************************************************************************************
+ans 4)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+	
+    public static int findmin(int num ){
+        int[] arr = {1,2,5,10,20,50,100,200,500,2000} ;
+        // System.out.println(Arrays.toString(arr) ) ;
+        int low = 0 ;
+        int high = arr.length - 1;
+        // System.out.println(high) ;
+        int ans = - 1 ;
+        while(low<=high){
+            
+            int mid = low + (high-low)/2 ; 
+            if(arr[mid]==num ){
+                return arr[mid] ;
+            }
+            else if(arr[mid]<num ) {
+                ans = arr[mid] ;
+                low = mid + 1 ;
+            }
+            else{
+                high = mid - 1 ;
+            }
+            
+            
+        }
+        return ans ;
+    }
+    public static int numberOfCoins(int n){
+       int count = 0 ;
+        while(n!=0){
+            int remain = findmin(n) ; 
+            
+            n = n - remain;
+           count++ ;
+        }
+        return count ;
+    }
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	int tc = Integer.parseInt(bf.readLine().trim());
+       
+       while(tc-- !=0){
+            	int n = Integer.parseInt(bf.readLine().trim());
+            	 try {
+    //   String[] strArr = bf.readLine().trim().split(" ");
+
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")).mapToInt(Integer::parseInt).toArray();
+        //   int miniCoins = numberOfCoins(51) ;
+        //   System.out.println(miniCoins) ;
+        int[] minArr = new int[10000+ 1] ;
+        for(int i=0 ;i<=10000 ;i++){
+            minArr[i] = numberOfCoins(i) ;
+        }
+        double min = Double.POSITIVE_INFINITY;
+        int ans = - 1 ;
+        for(int i=0 ;i<n ;i++){
+            double val = minArr[arr[i]] ;
+            if(min>val){
+                min = val ;
+                ans = arr[i] ;
+            }
+            else if(min==val){
+                ans = Math.min(arr[i],ans) ;
+            }
+        }
+        System.out.println(ans) ;
+    
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+       }
+       
+   	   
+   	 
+    	bf.close();
+	}
+}
+
+
+
+
+
+
+
+
+******************************************************************************************************
+ans 5) 
+
+ public int[] productExceptSelf(int[] nums) {
+        int[] left = new int[nums.length ] ;
+        int[] right = new int[nums.length ] ;
+        
+        int pro = 1 ;
+        for(int i=0 ;i<nums.length ;i++){
+          left[i] = pro ;
+            pro = pro *nums[i] ;
+        
+        }
+        pro = 1 ;
+        for(int i = nums.length - 1 ;i>=0 ;i--){
+            
+            right[i] = pro ;
+            pro = pro * nums[i] ;
+            
+        }
+        int [] ans = new int[nums.length ] ;
+        for(int i=0 ;i<nums.length ;i++){
+            ans[i] = left[i]*right[i] ;
+        }
+        // System.out.println(Arrays.toString(left) ) ;
+        //     System.out.println(Arrays.toString(right) ) ;
+         // System.out.println(Arrays.toString(ans) ) ;
+        return ans ;
+    }
+
+
+******************************************************************************************************
+ans 6)
+	public static void subset(int[]arr,int n) {
+   	//  System.out.println(Arrays.toString(arr)) ;
+   	Map<Integer,Integer> obj = new HashMap<>() ;
+   	
+   	for(int i= 0 ; i<arr.length;i++){
+   	    
+   	    if(obj.containsKey(arr[i])){
+   	        
+   	        // Object val = obj.get(arr[i] ) ;
+   	        // val = (Integer) val ;
+   	        // val = val + new Integer(1)  ;
+   	        obj.put( arr[i] , obj.get(arr[i]) + 1 ) ;
+   	    }
+   	    else{
+   	        obj.put(arr[i] , 1  ) ;
+   	    }
+   	}
+   	// System.out.println(obj) ;
+   	for(Map.Entry<Integer,Integer> entry : obj.entrySet() ){
+   	    if( entry.getValue()==1){
+   	     System.out.println(entry.getKey() ) ;   
+   	     return ;
+   	    }
+   	}
+    	}
+
+
+******************************************************************************************************
+ans 7)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    public static int[] smallestleft(int []arr, int n){
+        Stack<Integer> stk = new Stack<>() ;
+        int[] ans = new int[n] ;
+        
+        for(int i = 0 ;i<n ;i++){
+            
+            while(stk.size()>0 && arr[i]<=arr[stk.peek()] ){
+                stk.pop() ;
+            }
+            if(stk.size()==0 ){
+                ans[i] = - 1 ; 
+            }
+            else{
+                ans[i] = stk.peek() ;
+            }
+            
+            stk.push(i) ;
+        }
+        //   System.out.println(Arrays.toString(ans) ) ;
+        return ans ;
+      
+    }
+    public static int[] smallestright( int[] arr , int n){
+        Stack<Integer> stk = new Stack<>() ;
+        int[] ans = new int[n] ;
+        for(int i = n- 1 ; i>=0 ;i--){
+            while(stk.size() > 0 && arr[stk.peek()]>= arr[i] ){
+                stk.pop() ;
+            }
+            if(stk.size() ==0 ){
+                ans[i] = - 1 ;
+            }
+            else{
+                ans[i] = stk.peek() ;
+            }
+            stk.push(i) ;
+        }
+        // System.out.println(Arrays.toString(ans)) ;
+        return ans ;
+        
+    }
+    
+	public static void subset(int[]arr,int n) {
+   	    int[] left =  smallestleft(arr, n) ;
+   	    int[] right = smallestright(arr,n) ;
+   	     
+   	     int[] ans = new int[n] ;
+   	     
+   	     for(int i = 0 ;i<n ;i++){
+   	         
+   	         if(left[i]== - 1 && right[i] == - 1  ){
+   	             ans[i] = - 1 ;
+   	             System.out.print(- 1 + " ") ;
+   	         }
+   	         else if(left[i] ==  - 1 ){
+   	             ans[i] = right[i] ;
+   	             System.out.print(arr[right[i]]+ " " ) ;
+   	         }
+   	         else if(right[i] == - 1  ){
+   	             ans[i]  = left[i] ;
+   	             System.out.print(arr[left[i]]+ " " ) ;
+   	         }
+   	         else {
+   	             int leftIndex ;
+   	             int rightIndex ;
+   	             
+   	             if(left[i]>i){
+   	                 leftIndex  = left[i] - i ;
+   	             }
+   	             else{
+   	                 leftIndex = i - left[i] ;
+   	             }
+   	             if(right[i]>i ){
+   	                 rightIndex = right[i] - i ;
+   	             }
+   	             else{
+   	                 rightIndex = i = right[i] ;
+   	             }
+   	             
+   	             if(rightIndex>=leftIndex){
+   	                 System.out.print(arr[left[i]] + " ");
+   	             }
+   	             else{
+   	                 System.out.print(arr[right[i]] + " ") ;
+   	             }
+   	         }
+   	         
+   	     }
+   	     System.out.println() ;
+   	        
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	int tc = Integer.parseInt(bf.readLine().trim());
+   	    try {
+    while(tc-- !=0){
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")).mapToInt(Integer::parseInt).toArray();
+           	 
+         	subset(arr,n);  
+} 
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+
+
+******************************************************************************************************
+ans 8)
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+	public static void subset(int[]arr1,int[] arr2,int n) {
+   	//  System.out.println(Arrays.toString(arr1)) ;
+   	//  System.out.println(Arrays.toString(arr2)) ;
+   	Queue<Integer> que1 = new LinkedList<>();
+   	
+   	for(int i=0 ;i<n ;i++){
+   	    que1.add(arr1[i] ) ;
+   	}
+   	int i =0 ;
+   	int count = 0 ;
+   while(i<n){
+       if(que1.peek() != arr2[i] ){
+           
+           int el = que1.remove() ;
+           que1.add(el) ;
+           count++ ;
+       }
+       else{
+           que1.remove() ;
+           count++ ;
+           i++ ;
+       }
+       
+   }
+   System.out.println(count) ;
+   	 
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	
+   	    try {
+    
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr1 = Arrays.stream(bf.readLine().trim().split(" "))
+    	               .mapToInt(Integer::parseInt).toArray();
+         int[] arr2 = Arrays.stream(bf.readLine().trim().split(" "))
+    	               .mapToInt(Integer::parseInt).toArray();
+    	               
+         	subset(arr1,arr2,n);  
+ 
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+
+
+******************************************************************************************************
+ans 9)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    public static HashSet<String> ans = new HashSet<>() ;
+	public static void subset(int[]arr,int n,ArrayList<Integer> newarr , int index ) {
+   	 if( newarr.size()>0 ){
+   	     Collections.sort(newarr) ;
+   	//   System.out.println(newarr) ;
+   	    String str = "" ;
+   	     for(int j =0 ;j<newarr.size() ;j++ ){
+   	    str += newarr.get(j) +" " ;
+   	     }
+   	     
+   	     if(!ans.contains(str) ){
+   	        System.out.println(str) ;
+   	        ans.add(str) ;
+   	     }
+      
+   	
+   	    ans.add(str) ;
+   	 
+   	 }
+   	 if(index==n ){
+   	     return ;
+   	 }
+   	 for(int i =index ;i<n ;i++){
+   	     
+   	     newarr.add(arr[i] ) ;
+   	     subset(arr,n,newarr, i+ 1) ;
+   	     newarr.remove(newarr.size() - 1  ) ;
+   	 }
+   	 
+   	 
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	
+   	    try {
+    
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")).mapToInt(Integer::parseInt).toArray();
+    	    Arrays.sort(arr) ;
+    ArrayList<Integer> newarr = new ArrayList<>() ;
+    int index = 0 ;
+        System.out.println(" ") ;
+         	subset(arr,n,newarr,index);  
+ 
+           	//  ArrayList<String> fans = new ArrayList<>(ans) ;
+           	//  Collections.sort(fans) ;
+           	//  System.out.println(" ") ;
+           	//  for(int i =0 ;i<fans.size() ;i++ ){
+           	//      System.out.println(fans.get(i) ) ;
+           	//  }
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+
+
+******************************************************************************************************
+ans 10)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+
+    
+	public static void robot(String[] str, int low,int high,ArrayList<String> ans ) {
+   	//  System.out.println(Arrays.toString(str)) ;
+   	
+   	if(low>=high){
+   	  if(low==high){
+   	      ans.add(str[high] ) ;
+   	  }
+   	   
+   	    return ;
+   	    
+   	}
+   	
+   	int mid = low + ((high -low)/ 2) ;
+   	// System.out.println(mid) ;
+   
+   	ans.add(str[mid]) ;
+   	
+   	robot(str ,low, mid- 1,ans) ;
+   	robot(str ,mid+ 1,high,ans) ;
+   	
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	int tc = Integer.parseInt(bf.readLine().trim());
+   	    try {
+    while(tc-- !=0){
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	String[] str = bf.readLine().trim().split("") ;
+           	 int low = 0 ;
+           	 int high = n - 1 ;
+           ArrayList<String> ans = new ArrayList<>() ;
+           	 
+         	robot(str,low,high,ans); 
+         	
+        //  	System.out.println(ans) ;
+        String ansStr = "" ;
+        for(int i=0 ;i<ans.size() ;i++ ){
+            System.out.print(ans.get(i) ) ;
+        }
+        System.out.println() ;
+      
+} 
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+
+
+******************************************************************************************************
+
+ans 11)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+	public static void knight(int[][] arr, int i,int j, int n ){
+   	 
+   	 if(i>9 || j>9 || i<0 || j<0){
+   	     return ;
+   	 }
+   	 if(n==0){
+   	     arr[i][j] = 1 ;
+   	     return ;
+   	 }
+   	 
+   	 
+   	  knight(arr,i+ 2, j+ 1,n- 1) ;
+   	  knight(arr, i + 2 ,j - 1, n- 1 ) ;
+   	  knight(arr, i- 2 ,j + 1 ,n- 1  ) ;
+   	  knight(arr,i- 2 ,j - 1, n- 1 ) ;
+   	  
+   	  knight(arr, i + 1, j + 2, n- 1) ;
+   	  knight(arr, i - 1 , j + 2, n- 1) ;
+   	  knight(arr , i + 1, j - 2 ,n- 1) ;
+   	  knight(arr, i - 1, j - 2 , n- 1 ) ;
+   	  
+   	   
+	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    // 	int tc = Integer.parseInt(bufferedReader.readLine().trim());
+   	    try {
+  
+
+//   int n = Integer.parseInt(bufferedReader.readLine().trim());
+   int[][] arr = new int[10][10] ;
+    	int[] arr1 = Arrays.stream(bf.readLine().trim().split(" "))
+    	                       .mapToInt(Integer::parseInt).toArray();
+    	  int i = arr1[0] - 1  ;
+    	  int j = arr1[1] - 1;
+    	  int n = arr1[2] ;
+           	 
+         	knight(arr,i,j,n);  
+         	int count = 0 ;
+         	for( int[] ar : arr){
+         	  //  System.out.println(Arrays.toString(ar) );
+         	  for(int p =0 ;p<ar.length ;p++){
+         	      if(ar[p]==1){
+         	          count++ ;
+         	      }
+         	  }
+         	}
+         	System.out.println(count) ;
+ 
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+******************************************************************************************************
+
+ans 12)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    static int count = 0 ;
+
+	public static void subset(int[]arr,int n) {
+   	//   System.out.println(Arrays.toString(arr) ) ;
+   	Arrays.sort(arr) ;
+   	for(int i =0 ;i<n- 2 ;i++){
+   	    
+   	    int j = i+ 1 ;
+   	    int k = n - 1 ;
+   	    while(j<k){
+   	        int sum = arr[i] + arr[j] + arr[k] ;
+   	        if(sum==0){
+   	            count++ ;
+   	            j++ ;
+   	        }
+   	        else if(sum>0 ){
+   	            k-- ;
+   	        }
+   	        else{
+   	            j++ ;
+   	        }
+   	        
+   	    }
+   	}
+   	System.out.println(count) ;
+   	   
+}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    
+   	    try {
+   
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")).mapToInt(Integer::parseInt).toArray();
+          
+         	subset(arr,n);  
+ 
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+******************************************************************************************************
+
+ans 13)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+	public static void equil(int[]arr,int n) {
+   	 
+   	 int[] left = new int[n] ;
+   	 int[] right = new int [n] ;
+   	 int sum = 0 ;
+   	 for(int i=0 ;i<n ;i++ ){
+   	     left[i] = sum ;
+   	     sum = sum + arr[i] ;
+   	 }
+   	 
+   	 sum =0 ;
+   	 for(int i= n- 1 ;i>=0 ;i--){
+   	     right[i] = sum ;
+   	    //  System.out.println(Arrays.toString(right) ) ;
+   	     sum = arr[i] + right[i] ;
+   	 }
+   	 
+   	//  System.out.println(Arrays.toString(right) ) ;
+   	//  System.out.println(Arrays.toString(left) ) ;
+   	 for(int i=0 ;i<n ;i++){
+   	     if(right[i]==left[i] ){
+   	         System.out.println(i+ 1) ;
+   	         return ;
+   	     }
+   	 }
+   	 System.out.println("-1") ;
+   	 
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	
+   	    try {
+    
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")).mapToInt(Integer::parseInt).toArray();
+           	 
+         	equil(arr,n);  
+        // System.out.println(Arrays.toString(arr) ) ;
+
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+
+
+
+******************************************************************************************************
+ans 14)
+
+class Solution {
+    public int maxProduct(int[] nums) {
+    
+        int[] left = new int[nums.length] ;
+        int[] right = new int[nums.length] ;
+        Integer max = Integer.MIN_VALUE ;
+        
+        int pro = 1 ;
+        for(int i =0 ;i<nums.length ;i++){
+            pro = pro * nums[i] ;
+            if(pro>max){
+                    max = pro ;
+                }
+            if(nums[i]>max ){
+                max = nums[i] ;
+                }
+            if(pro==0){
+             pro = 1 ;
+            }
+            left[i] = pro ;
+        }
+        
+         pro = 1 ;
+        for(int i = nums.length- 1 ;i>=0 ;i--){
+          pro = pro * nums[i] ;
+            if(pro > max){
+                max = pro ;
+                }
+            if(nums[i]>max ){
+               max = nums[i] ;
+                }
+            if(pro ==0){
+                   pro = 1 ;
+            }
+            right[i]  = pro ;
+        }
+        return max ;
+    }
+}
+
+******************************************************************************************************
+ans 15)
+import java.util.* ;
+import java.io.* ;
+import java.util.stream.* ;
+import static java.util.stream.Collectors.toList ;
+
+
+public class Main{
+    public static String reverse(String str){
+        if(str.equals("}")){
+            return "{" ;
+        }
+        else if(str.equals("]")){
+            return "[" ;
+        }
+        else{
+            return "(" ;
+        }
+    }
+    public static boolean againClassic(String[] str ){
+        Stack<String> stk  = new Stack() ;
+        for(int i =0 ;i<str.length ;i++){
+       
+            if(str[i].equals("(") || str[i].equals("[") || str[i].equals("{") ){
+                stk.push(str[i]) ;
+                //   System.out.println(stk) ;
+            }
+            else {
+                if(stk.size()==0){
+                    return false ;
+                }
+                // System.out.println( reverse(str[i])) ;
+                if(stk.peek().equals(reverse(str[i]))){
+                    stk.pop() ;
+                }
+                else{
+                    return false ;
+                }
+            }
+            //   System.out.println(stk) ;
+        }
+        if(stk.size() ==0){
+            // System.out.println(stk) ;
+            return true ;
+        }
+        
+            return false ;
+        
+        
+        
+    }
+    
+    public static void main(String[] args ) throws IOException{
+        
+        BufferedReader bf  = new BufferedReader(new InputStreamReader(System.in) ) ;
+        
+        int tc = Integer.parseInt(bf.readLine().trim()) ;
+        
+        try{
+            while(tc-- != 0){
+                String[] str = bf.readLine().trim().split("") ;
+                // System.out.println(Arrays.toString(str)) ;
+               if(againClassic(str))
+                 System.out.println("balanced") ;
+                else
+                System.out.println("not balanced") ;
+            }
+             
+        
+        }catch(IOException e){
+           throw new RuntimeException(e) ;
+        }
+        
+        bf.close() ;
+       
+        
+    }
+}
+
+******************************************************************************************************
+ans 16)
+import java.util.* ;
+import java.lang.* ;
+import java.util.stream.* ;
+import java.io.* ;
+import static java.util.stream.Collectors.toList ;
+
+public class Main{
+    public static void raintrap(int[] arr , int n ){
+        
+        int[] leftmax = new int[n] ;
+        int[] rightmax = new int[n] ;
+        leftmax[0] = arr[0] ;
+        for(int i = 0 ;i<n - 1 ;i++){
+            if(leftmax[i]>arr[i+ 1] ){
+                leftmax[i + 1] = leftmax[i] ;
+            }
+            else{
+                leftmax[i + 1] = arr[i + 1] ;
+            }
+        }
+        rightmax[n- 1] = arr[n - 1] ;
+        for(int i =n - 1 ;i>=1 ;i-- ){
+            if(rightmax[i]>arr[i - 1] ){
+                rightmax[i - 1] = rightmax[i] ;
+            }
+            else{
+                rightmax[i - 1] = arr[i - 1] ;
+            }
+        }
+        // System.out.println(Arrays.toString(rightmax) ) ;
+        int rain = 0  ;
+        for(int i=0 ;i<n ;i++){
+            rain += Math.min(leftmax[i], rightmax[i] ) - arr[i] ;
+        }
+        System.out.println(rain) ;
+    }
+    
+    
+    public static void main(String[] args )throws IOException{
+        
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in) ) ;
+        
+        int tc = Integer.parseInt(bf.readLine().trim() ) ;
+        try{
+             while(tc -- !=0){
+            int n = Integer.parseInt(bf.readLine().trim() ) ;
+            
+            int[] arr = Arrays.stream(bf.readLine().trim().split(" ") )
+                         .mapToInt(Integer::parseInt).toArray() ;
+         
+           raintrap(arr ,n) ;                 
+        }
+            
+        }catch(IOException e){
+            throw new RuntimeException(e) ;
+        }
+       
+        bf.close() ;
+        
+    }
+}
+
+******************************************************************************************************
+ans 17)
+
+ public static Node reverseLinkedList(Node a){
+   Node prev = null ;
+   Node current = a ;
+   Node next = null ;
+   while(current !=null){
+       next = current.next ;
+       current.next = prev ;
+       prev = current ;
+       current = next ;
+       
+   }
+   return prev ;
+  }
+
+******************************************************************************************************
+ans 18)
+
+/*
+class Node{
+  int data;
+  Node next;
+  
+  public Node(int data,Node next){
+    this.data = data;
+    this.next = next;
+  }
+  public Node(int data){
+    this.data = data;
+    this.next = null;
+  }
+  public Node(){
+    this.data = 0;
+    this.next = null;
+  }
+}
+*/
+
+class Solution{
+  public static boolean checkForCycle(Node head){
+   if(head==null){
+       return false ;
+   }
+   
+   Node slow = head ;
+   Node fast = slow.next.next ;
+   while(slow !=null &&  fast.next !=null && fast.next.next != null){
+       if(slow.data < 0){
+           return false ;
+       }
+       if(slow == fast){
+           return true ;
+       }
+       slow = slow.next ;
+       fast = fast.next.next ;
+   }
+   return false ;
+   
+   ////////this question can be solved using hashset if any element is repeated then simply return true
+   
+  }
+}
+
+
+******************************************************************************************************
+ans 19)
+  public Node mergeTwoLinkedList(Node a,Node b){
+    Node head = new Node(0);
+    Node node1 = a ;
+    Node node2 = b ;
+    Node  merge = head ;
+    
+    while(true){
+        
+    if(node1 ==null){
+        merge.next = node2  ;
+        break ;
+    }
+    if(node2 ==null){
+        merge.next = node1  ;
+    break ;
+    }
+        
+        if(node1.data <=node2.data){
+            merge.next = node1 ;
+            
+            node1 = node1.next ;
+            merge = merge.next ;
+        }
+        else{
+             merge.next= node2 ;
+            node2 = node2.next ;
+            merge = merge.next ;
+        }
+    }
+    // while(node1 != null){
+    //      merge.next= node1 ;
+    //     merge = merge.next  ;
+       
+    //     node1 = node1.next ;
+    // }
+    // while(node2 !=null){
+    //      merge.next= node2 ;
+    //     merge = merge.next ;
+        
+    //     node2 = node2.next ;
+    // }
+    return head.next ;
+}
+
+******************************************************************************************************
+ans 20)
+lass Solution{
+  public int middleNode(Node head){
+  Node fast = head ;
+  Node slow = head ;
+  Node prev = head ;
+  Node midNode = null ;
+  
+  while(fast !=null && fast.next !=null){
+     prev = slow ;
+      slow = slow.next ;
+      
+      fast = fast.next.next ;
+  }
+  if(fast != null){
+      return slow.data ;
+  }
+  else{
+     return  slow.data ;
+  }
+  }
+}
+******************************************************************************************************
+ans 21)
+import java.util.* ;
+import java.util.stream.* ;
+import static java.util.stream.Collectors.toList ;
+import java.io.* ;
+
+public class Main{
+    
+    public static void pair(int[] arr ,int n , int k ){
+        int low =0 ;
+        int high = n - 1 ;
+        while(low<high){
+            int sum = arr[low] + arr[high] ;
+            
+            if(sum==k){
+                System.out.println(low+" "+ high) ;
+                return ;
+            }
+            if(sum>k){
+                high-- ;
+            }
+            else{
+                low++ ;
+            }
+            
+        }
+        System.out.println(- 1 +" "+ - 1) ;
+        
+    }
+    public static void main(String[] args) throws IOException{
+    BufferedReader bf = new BufferedReader(new InputStreamReader(System.in) ) ;
+    int tc =  Integer.parseInt(bf.readLine().trim() ) ;
+    
+    try{
+        while(tc-- !=0 ){
+            int[] arr1 = Arrays.stream(bf.readLine().trim().split(" ") )
+                          .mapToInt(Integer::parseInt).toArray() ;
+             int n = arr1[0] ;
+             int k = arr1[1] ;
+        int[] arr = Arrays.stream(bf.readLine().trim().split(" ") )
+                              .mapToInt(Integer::parseInt).toArray() ;
+        // System.out.println(Arrays.toString(arr)) ;
+        pair(arr ,n, k) ;
+        }
+        
+    }catch(IOException e){
+        throw new RuntimeException(e) ;
+    }
+    bf.close() ;
+    
+    }
+}
+******************************************************************************************************
+ans 22)
+class Solution{
+    List<Integer> list = new ArrayList<>() ;
+    public void preOrder(TreeNode root){
+        if(root==null) return ;
+        
+        list.add(root.data) ;
+        preOrder(root.left) ;
+        preOrder(root.right) ;
+    }
+    
+  public List<Integer> preorder(TreeNode root){
+      
+      preOrder(root) ;
+      return list ;
+  }
+}
+******************************************************************************************************
+ans 23)
+/*
+class TreeNode{
+	int data;
+	TreeNode left;
+	TreeNode right;
+
+	TreeNode(int data){
+		this.data = data;
+		this.left = null;
+		this.right = null;
+	}
+}
+*/
+
+class Solution{
+    List<Integer> list = new ArrayList<>() ;
+    public void postOrder(TreeNode root){
+        if(root==null) return ;
+        
+        postOrder(root.left) ;
+        postOrder(root.right) ;
+        list.add(root.data) ;
+        
+    }
+  public List<Integer> postorder(TreeNode root){
+    postOrder(root) ;
+    return list ;
+  }
+}
+
+******************************************************************************************************
+ans 24)
+class Solution{
+    public List<Integer> list = new ArrayList<>() ;
+    public void inOrder(TreeNode root){
+        if(root==null) return  ;
+        
+        inOrder(root.left) ;
+        list.add(root.data) ;
+        inOrder(root.right) ;
+    }
+  public List<Integer> inorder(TreeNode root){
+   inOrder(root) ;
+   return list ;
+  }
+}
+******************************************************************************************************
+ans 25)
+class Solution{
+    List<List<Integer>> main = new ArrayList<>() ;
+
+	public List<List<Integer>> levelorderTraversal(TreeNode root){
+	  	
+	  	
+		
+		TreeNode curr = root ;
+		 Queue<TreeNode> que1 = new LinkedList() ;
+		 Queue<TreeNode> que2 = new LinkedList() ;
+		 que1.add(root) ;
+		while(que1.size()>0 || que2.size()>0){
+		   List<Integer> list = new ArrayList<>() ;
+		  
+		   
+		   while(que1.size() >0){
+		      TreeNode remov = que1.remove() ;
+	           list.add(remov.data) ;
+	           
+		       if(remov.left != null) que2.add(remov.left) ;
+		       if(remov.right != null ) que2.add(remov.right) ;
+		   }
+		   main.add(list) ;
+		    List<Integer> list2 = new ArrayList<>() ;
+		   
+		   while(que2.size()>0 ){
+		       TreeNode remov = que2.remove() ;
+		       list2.add(remov.data) ;
+		       
+		       if(remov.left != null ) que1.add(remov.left) ;
+		       if(remov.right != null) que1.add(remov.right) ;
+		   }
+		   main.add(list2) ;
+		   
+		  
+		    
+		}
+		return main ;
+	}
+}
+******************************************************************************************************
+ans 26)
+class Solution{
+	public List<Integer> leftView(TreeNode root){
+	
+	List<Integer> list = new ArrayList<>() ;
+	Queue<TreeNode> que = new LinkedList<>() ;
+	que.add(root) ;
+	while(que.size()>0 ){
+	    
+	 int n = que.size() ;
+	 
+	 for(int i = 0 ;i<n ;i++){
+	     
+	     TreeNode temp = que.remove() ;
+	     if(temp.left!=null ) que.add(temp.left) ;
+	     
+	     if(temp.right != null) que.add(temp.right) ;
+	     
+	     if(i==0) list.add(temp.data) ;
+	     
+	 }
+	    
+	    
+	}
+	return list ;
+	}
+}
+******************************************************************************************************
+ans 27)
+class Main{
+   public static void create(List<List<Integer>> g,int n){
+		for (int i=0;i<n;i++){
+			List<Integer> temp = new ArrayList<>();
+			g.add(temp);
+		}
+	}
+  public static void main(String[] args){
+		    Scanner s = new Scanner(System.in);
+			int n = s.nextInt();
+			List<List<Integer>> g = new ArrayList<>();
+			create(g,n);
+			int m = s.nextInt();
+			for (int i=0;i<m;i++){
+				int x = s.nextInt() - 1;
+				int y = s.nextInt() - 1;
+				g.get(x).add(y);
+				g.get(y).add(x);
+			}
+		}
+	}
+}
+
+******************************************************************************************************
+ans 28)
+import java.util.* ;
+import java.io.* ;
+import java.util.stream.* ;
+import java.lang.* ;
+// import static java.util.stream.Collectors.ToList ;
+
+class Main{
+    
+    public static void main(String[] args ){
+        
+        Scanner input = new Scanner(System.in) ;
+        int tc =  input.nextInt() ;
+        // System.out.println(input.next) ;
+        while(tc-- !=0){
+           int NoOfvertex = input.nextInt() ;
+        //   System.out.println(NoOfvertex) ;
+           HashSet<Integer> hs = new HashSet<>() ;
+           for(int i =0 ;i<NoOfvertex ;i++){
+              int x = input.nextInt() ;
+               int y = input.nextInt() ;
+               hs.add(x) ;
+               hs.add(y) ;
+               
+             
+           }
+           System.out.println(hs.size() ) ;
+        }
+    }
+    
+}
+******************************************************************************************************
+ans 29)
+
+import java.lang.* ;
+import java.util.* ;
+import java.util.stream.* ;
+import java.io.* ; 
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    static long[] dp  ;
+    static int count  =0 ;
+    static long printCountDP(int n){
+         
+          if(n==0){
+              
+              return 1 ;
+          }
+           if(n<0){
+              return 0 ;
+          }
+          
+          if(dp[n] != (long) - 1 ) return dp[n] ;
+         
+          dp[n] = printCountDP(n - 1) + printCountDP(n- 2 ) + printCountDP(n - 3) ;
+          return dp[n] ;
+}
+    
+    public static void main(String[] args){
+        Scanner input  = new Scanner(System.in) ;
+       
+        int n = input.nextInt() ;
+         dp = new long[n+ 1] ;
+        Arrays.fill(dp , (long)- 1) ;
+        
+        System.out.println(printCountDP(n)) ;
+        // System.out.println(count) ;
+        // for(int i = n- 8 ;i<n ;i++){
+        //     System.out.println( i + " " +dp[i] ) ;
+        // }
+        
+    }
+}
+******************************************************************************************************
+ans 30)
+
+import java.util.* ;
+import java.io.* ;
+import java.util.stream.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    static int ans = 0 ;
+    public static int koram(int[] arr, int n){
+        Integer[] minjum = new Integer[n] ;
+        Arrays.fill(minjum ,Integer.MAX_VALUE) ;
+        minjum[0] = 0 ;
+        for(int i =0 ;i< n;i++){
+            
+            int range = arr[i] + i ;
+            
+            for(int j =i+ 1 ;j< Math.min(range+ 1 , n) ;j++){
+                minjum[j] = Math.min(minjum[j] , 1 + minjum[i] ) ;
+            }
+        }
+        System.out.println(minjum[n- 1]) ;
+       return minjum[n- 1] ;
+    }
+    
+    public static void main(String[] args ) throws IOException{
+         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in) ) ;
+         try{
+             int n = Integer.parseInt(bf.readLine().trim() ) ;
+             int[] arr = Arrays.stream(bf.readLine().trim().split(" "))
+                                     .mapToInt(Integer::parseInt).toArray() ;
+        //   System.out.println(arr) ;
+        koram(arr,n) ;
+        // System.out.println(ans) ;
+         }
+         catch(IOException i){
+             throw new RuntimeException(i) ;
+         }
+         bf.close() ;
+    }
+}
+******************************************************************************************************
+ans 31)
+
+import java.lang.* ;
+import java.util.* ;
+import java.util.stream.* ;
+import java.io.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+   static long[][] dp;
+    public static long coins(int[] arr,int n ,int m ,int index ){
+        if(index>=n){
+            return 0 ;
+        }
+        if(m==0){
+            return 1 ;
+        }
+        if(m<0){
+            return 0 ;
+        }
+        if(dp[index][m] !=(long) - 1){
+            return dp[index][m] ;
+        }
+        
+        
+        long include =  coins(arr,n,m-arr[index] ,index) ;
+        long exclude = coins(arr,n,m,index + 1) ;
+        dp[index][m] = include +exclude ;
+        return dp[index][m] ;
+    }
+    
+    public static void main(String[] args )throws IOException{
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)) ;
+        
+        try{
+            int[] arr1 = Arrays.stream(bf.readLine().trim().split(" ") )
+                                               .mapToInt(Integer::parseInt)
+                                              .toArray() ;
+        //   System.out.println(arr1) ;
+        int m = arr1[0] ;
+        int n= arr1[1] ;
+        int[] arr = Arrays.stream(bf.readLine().trim().split(" ") )
+                               .mapToInt(Integer::parseInt)
+                            .toArray() ;
+        int index =0 ;
+        dp = new long[n+ 1][m+ 1] ;
+        for(int p =0 ;p<n+ 1 ;p++){
+            Arrays.fill(dp[p],(long)- 1) ;
+        }
+        
+        System.out.println(coins(arr,n,m,index)) ;
+        
+        }catch(IOException e){
+            throw new RuntimeException(e) ;
+        }
+        bf.close() ;
+    }
+}
+******************************************************************************************************
+ans 32)
+
+import java.util.* ;
+import java.util.stream.* ;
+import java.io.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    static int[][] dp ;
+    public static void subarr(String str1 ,String str2, int n, int m){
+        
+         int i1 = 0 ;
+         int i2 = 0 ;
+         while(i1<n && i2<m ){
+             
+             if((str1.charAt(i1))==(str2.charAt(i2))){
+                // System.out.println((str1.charAt(i1))+"=="+(str2.charAt(i2))) ;
+                 i1++ ;
+                 i2++ ;
+                  
+             }else{
+                  i2++ ;
+             }
+           
+         }
+        //  System.out.println(i1);
+         if(i1== n){
+             System.out.println("YES") ;
+         }else{
+             System.out.println("NO") ;
+         }
+       
+    }
+    //   if(n<0){
+    //       return 0 ;
+    //   }
+    //   if(m<0){
+    //       return 0 ;
+    //   }
+    //   if(dp[n][m] != - 1){
+    //       return dp[n][m]  ;
+    //   }
+       
+    //   if(str1.charAt(n) == str2.charAt(m) ){
+    //       return dp[n][m] =  1 + subarr(str1, str2 ,n - 1 , m - 1) ;
+    //   }
+    //   return dp[n][m] =  subarr(str1, str2, n, m - 1) ;
+    
+    // }
+    public static void main(String[] args) throws IOException{
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in) ) ;
+        
+        try{
+           int tc = Integer.parseInt(bf.readLine().trim() ) ; 
+            while(tc-- != 0){
+               
+               String str1 = bf.readLine().trim()  ;
+               int n = str1.length() ;
+               String str2 = bf.readLine().trim() ;
+                int m = str2.length() ; 
+                
+      
+                // int le = n + 1 ;
+                // dp = new int[n+ 1][m+ 1] ;
+                // for(int p=0 ;p<n + 1 ;p++){
+                //     Arrays.fill(dp[p] , - 1 ) ;
+                // }
+         subarr(str1 ,str2, n,m) ;
+        //      if (n > m) {
+                
+        //          System.out.println("NO");
+        //     }
+        //  else if(l == le){
+        //       System.out.println("YES") ;
+        //   }
+        //   else{
+        //       System.out.println("NO") ;
+        //   }
+          
+            }
+            
+            
+            
+            
+        }catch(IOException e){
+            throw new RuntimeException(e) ;
+        }
+        bf.close() ;
+    }
+}
+******************************************************************************************************
+ans 33)
+import java.util.* ;
+import java.util.stream.* ;
+import java.io.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    public static int subarr(int[] a ,int n,int index){
+       int size = a.length;
+        int max_so_far = Integer.MIN_VALUE, max_ending_here = 0;
+  
+        for (int i = 0; i < size; i++)
+        {
+            max_ending_here = max_ending_here + a[i];
+            if (max_so_far < max_ending_here)
+                max_so_far = max_ending_here;
+            if (max_ending_here < 0)
+                max_ending_here = 0;
+        }
+        return max_so_far;
+    }
+    public static void main(String[] args) throws IOException{
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in) ) ;
+        
+        try{
+           int tc = Integer.parseInt(bf.readLine().trim() ) ; 
+            while(tc-- != 0){
+               
+               int n = Integer.parseInt(bf.readLine().trim() ) ;
+               
+               int[] arr = Arrays.stream(bf.readLine().trim().split(" ") )
+                                    .mapToInt(Integer::parseInt)
+                                    .toArray() ;
+                                    
+                System.out.println(subarr(arr,n,0) ) ;
+            }
+            
+            
+            
+            
+        }catch(IOException e){
+            throw new RuntimeException(e) ;
+        }
+        bf.close() ;
+    }
+}
+******************************************************************************************************
+ans 34)
+import java.io.* ;
+import java.util.* ;
+import java.util.stream.* ;
+import java.lang.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    // static long[] dp ;
+    public static void dpCost(int[] arr ,int index ,int n){
+        
+        int[] ans = new int[n+ 1] ;
+        Arrays.fill(ans, - 1) ;
+        ans[0] = 0 ;
+        ans[1] = 0 ;
+        for(int i = 2 ; i<=n ;i++){
+            ans[i] = Math.min(ans[i - 1] + arr[i - 1] , ans[i- 2] + arr[i - 2]) ;
+        }
+        System.out.println(ans[ans.length - 1] ) ;
+        
+    }
+    
+    public static void main(String[]args )throws IOException{
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in) ) ;
+        
+        try{
+            int n = Integer.parseInt(bf.readLine().trim() ) ;
+            int[] arr = Arrays.stream(bf.readLine().trim().split(" ") )
+                                         .mapToInt(Integer::parseInt)
+                                          .toArray() ;
+        // System.out.println(Arrays.toString(arr)) ;
+        // dp = new long[n+ 2] ;
+        // Arrays.fill(dp, - 1) ;
+        dpCost(arr,0 ,n) ;
+        // System.out.println(ans) ;
+        }catch(IOException e){
+            throw new RuntimeException(e) ;
+        }
+    }
+}
+******************************************************************************************************
+ans 35)
+
+import java.lang.* ;
+import java.util.* ;
+import java.util.stream.* ;
+import java.io.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    public static void angryEmp(long[] arr,long[] arr2 ,int n , int c ){
+        long high = arr[n- 1] - arr[0] ;
+        long low = 0 ;
+        long ans = (long) - 1 ;
+        while(low<=high){
+            long mid = low + (high - low)/2 ;
+            if(check(arr,n,c,mid)){
+                // System.out.println(mid);
+                ans = mid ;
+                low = mid+ 1;
+            }
+            else{
+                high = mid - 1 ;
+            }
+            
+        }
+        System.out.println(ans) ;
+    }
+    public static boolean check(long[]arr,int n,int c ,long mid){
+        int count = 1;
+        int i =1 ;
+        int j = 0 ;
+        while(i<n &&j<n &&i!=j) 
+        {
+            // System.out.println((arr[i] +"-" +arr[j] + " "+mid)) ;
+            // System.out.println(Math.abs(arr[i] - arr[j])) ;
+            if(Math.abs(arr[i] - arr[j])>= mid ){
+                count ++ ;
+                // System.out.println("count : " + count) ;
+                j =i  ;
+                i++ ;
+                
+            }
+            else{
+                i++ ;
+            }
+        }
+        if(count>= c){
+            return true ;
+        }
+        // System.out.println("false" + mid) ;
+        return false ;
+    }
+    
+    public static void main(String[] arg)throws IOException{
+        BufferedReader bf  = new BufferedReader(new InputStreamReader(System.in) ) ;
+        try{
+            int tc = Integer.parseInt(bf.readLine().trim() ) ;
+            
+            while(tc-- != 0){
+                int[] arr1 = Arrays.stream(bf.readLine().trim().split(" ") )
+                                  .mapToInt(Integer::parseInt).toArray() ;
+            // System.out.println(Arrays.toString(arr1) ) ;
+            int n = arr1[0] ;
+            int c = arr1[1] ;
+            long[] arr = new long[n] ;
+            long[] arr2 = new long[n] ;
+            for(int p =0 ;p< n ;p++){
+                arr[p] = (long) Integer.parseInt(bf.readLine().trim() ) ;
+                arr2[p] = arr[p] ;
+            }
+            Arrays.sort(arr) ;
+            //  System.out.println(Arrays.toString(arr) ) ;
+            angryEmp(arr,arr2,n,c) ;
+                                   
+                
+            }
+        }catch(IOException e){
+            throw new RuntimeException(e) ;
+        }
+        bf.close() ;
+    }
+}
+******************************************************************************************************
+ans 36)
+
+import java.util.* ;
+import java.util.stream.* ;
+import java.io.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+  
+    public static int dpNation(int[] hval , int n ,int index){
+        if (n == 0)
+            return 0;
+ 
+        int value1 = hval[0];
+        if (n == 1)
+            return value1;
+ 
+        int value2 = Math.max(hval[0], hval[1]);
+        if (n == 2)
+            return value2;
+ 
+        // contains maximum stolen value at the end
+        int max_val = 0;
+ 
+        // Fill remaining positions
+        for (int i = 2; i < n; i++) {
+            max_val = Math.max(hval[i] + value1, value2);
+            value1 = value2;
+            value2 = max_val;
+        }
+ 
+        return max_val;
+    }
+    
+    public static void main(String[] args)throws IOException{
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in) ) ;
+        
+        try{
+            int tc = Integer.parseInt(bf.readLine().trim() ) ;
+            
+            while(tc-- != 0){
+               int n = Integer.parseInt(bf.readLine().trim() ) ;  
+               
+               int[] arr = Arrays.stream(bf.readLine().trim().split(" ") )
+                                 .mapToInt(Integer::parseInt)
+                                 .toArray() ;
+          
+            System.out.println(dpNation(arr, n ,0)) ;
+            }
+        }catch(IOException e ){
+             throw new RuntimeException(e) ;
+        }
+        bf.close() ;
+    }
+}
+******************************************************************************************************
+ans 37)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+	public static void subset(int[] arr,int n) {
+	    if(n==1){
+	        System.out.println(arr[0]) ;
+	        return ;
+	    }
+	    int dia ;
+	    if(n%2 !=0){
+	        dia = n * 2 - 1;
+	    }
+	    else{
+	        dia = n * 2 ;
+	    }
+   	//  System.out.println(Arrays.toString(arr) ) ;
+   	int sum = 0 ;
+   	int i = 0 ;
+   	int loops = 4 ;
+   	int jumps = n - 1;
+   	int count = 0 ;
+   	
+   	while(count< dia){
+   	   
+   	   for(int j =0 ; count< dia && j < loops ;j++){
+   	       sum = sum + arr[i] ;
+   	        // System.out.println(arr[i]) ;
+   	       i = i + jumps ;
+   	       count++ ;
+   	     
+   	   }
+   	//   System.out.println(jumps) ;
+   	   jumps = jumps - 2 ;
+   	    
+   	}
+   	System.out.println(sum) ;
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	int tc = Integer.parseInt(bf.readLine().trim());
+   	    try {
+    while(tc-- !=0){
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")) 
+                               .mapToInt(Integer::parseInt).toArray();
+           	 
+         	subset(arr,n);  
+} 
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+******************************************************************************************************
+ans 38)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+	public static void subset(int[]arr,int n) {
+   	 
+   	 if(n==1){
+   	     System.out.println(arr[0]) ;
+   	     return ;
+   	 }
+   	 if(n==0){
+   	     System.out.println(- 1) ;
+   	     return ;
+   	 }
+   	 int[] leftGrt = new int[n] ;
+   	 int[] rightSma = new int[n] ;
+   	 leftGrt[0] = arr[0] ;
+   	 
+   	 
+   	 rightSma[n- 1] = arr[n - 1 ] ;
+   	 
+   	 for(int i = 1 ;i<n; i++){
+   	     if(leftGrt[i- 1] >arr[i]){
+   	         leftGrt[i] = leftGrt[i - 1] ;
+   	     }
+   	     else{
+   	         leftGrt[i] = arr[i] ;
+   	     }
+   	     
+   	 }
+   	 
+   	 for(int i = n- 2 ;i>=0 ;i--){
+   	     if( rightSma[i+ 1] < arr[i] ){
+   	         rightSma[i] = rightSma[i + 1] ;
+   	     }
+   	     else{
+   	         rightSma[i] = arr[i] ;
+   	     }
+   	     
+   	 }
+   	//  System.out.println(Arrays.toString(leftGrt) ) ;
+   	//  System.out.println(Arrays.toString(rightSma) ) ;
+   	for(int i = 0 ; i<n ;i++){
+   	    if(leftGrt[i] == rightSma[i]){
+   	        System.out.println(leftGrt[i]) ;
+   	        return ;
+   	    }
+   	}
+   	
+   	System.out.println(- 1) ;
+   	 
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	
+   	    try {
+   
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")) 
+                               .mapToInt(Integer::parseInt).toArray();
+           	 
+         	subset(arr,n);  
+ 
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+******************************************************************************************************
+ans 39)
+
+import java.util.* ;
+import java.lang.* ;
+import java.util.stream.* ;
+import java.io.* ;
+import static java.util.stream.Collectors.toList ;
+
+class Main{
+    public static void hash( String[] arr , int n ){
+        
+        int count = 1 ;
+        String s = ""  ;
+        Stack<String> stk = new Stack<>() ;
+        stk.push(arr[0]) ;
+        for(int i = 1; i<n ;i++){
+            if(arr[i].equals(stk.peek()) ){
+                stk.push(arr[i]);
+            }
+            else{
+            
+                s = s + stk.peek() + stk.size() ;
+                stk.clear() ;
+               
+                 stk.push(arr[i]);
+            }
+           
+        }
+        s = s+ stk.peek() + stk.size() ;
+        System.out.println(s) ;
+        
+    }
+        
+        // System.out.println(Arrays.toString(arr) ) ;
+        // HashMap<String ,Integer> hm = new HashMap<>() ;
+        // System.out.println(hm) ;
+        // for(int i = 0 ;i< n;i++){
+            
+        //     if(hm.containsKey(arr[i])){
+                
+        //         hm.put(arr[i] , hm.get(arr[i]) + 1 ) ;
+        //     }
+        //     else{
+        //         hm.put(arr[i] ,1 ) ;
+        //     }
+            
+        // }
+        // System.out.println(hm) ;
+    // }
+    
+    public static void main(String[] args )throws IOException{
+        BufferedReader bf = new BufferedReader( new InputStreamReader(System.in) ) ;
+        // System.out.println(bf.readLine() ) ;
+        int tc = Integer.parseInt(bf.readLine().trim() ) ;
+        
+        try{
+            while(tc-- !=0){
+                
+                int n = Integer.parseInt(bf.readLine().trim() ) ;
+                
+                String[] arr = (bf.readLine().trim().split("") ) ;
+                                  
+            hash(arr ,n) ;
+            }
+            
+        }catch(IOException e){
+            throw new RuntimeException(e) ;
+        }
+        bf.close() ;
+     }
+}
+******************************************************************************************************
+ans 40)
+
+String Sorting Ended
+Description
+
+You have a binary string S of length N. In one operation you can select a substring of S and reverse it. For example, on reversing the substring S[2,4] for S=11000, we change 11000→10010.
+
+Find the minimum number of operations required to sort this binary string.
+
+It can be proven that the string can always be sorted using the above operation finite number of times.
+******************************************************************************************************
+ans 41)
+
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    public static ArrayList<String> newArr = new ArrayList<>() ;
+
+	public static void subFunc(int[]arr,int n , int index ) {
+   	 
+   
+   	 if(index>=n){
+   	    //  System.out.println(Arrays.toString(arr) ) ;
+   	    String str = "" ;
+   	    for(int j = 0 ;j< n;j++){
+   	        // System.out.print(arr[j]+" " ) ;
+   	        str = str+ arr[j]+" " ;
+   	    }
+   	    newArr.add(str) ;
+   	    // System.out.println() ;
+    	     return ;
+   	 }
+   	 
+   	 for(int i =index ;i< n;i++){
+   	     swap(arr ,i ,index) ;
+   	     subFunc(arr ,n , index + 1 ) ;
+   	     swap(arr, i ,index) ;
+   	 }
+   	 
+    	}
+    
+  public static void swap(int[] arr , int i ,int j){
+      int temp = arr[i] ;
+      arr[i] = arr[j] ;
+      arr[j] = temp ;
+  }  
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bf = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	
+   	    try {
+ 
+
+   int n = Integer.parseInt(bf.readLine().trim());
+    	int[] arr = Arrays.stream(bf.readLine().trim().split(" ")) 
+                               .mapToInt(Integer::parseInt).toArray();
+    //  ArrayList<Integer> newArr = new ArrayList<>() ;      	 
+         	subFunc(arr,n , 0 );  
+ Collections.sort(newArr) ;
+ 
+ for(int i = 0 ;i< newArr.size() ;i++ ){
+     System.out.println(newArr.get(i) ) ;
+ }
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bf.close();
+	}
+}
+
+******************************************************************************************************
+ans 42 - 1)
+partially Accepted - 
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        String num1 = "" ;
+        String num2 = "" ;
+        ListNode current1 = l1 ;
+        ListNode current2 = l2 ;
+
+        while(current1.next != null){
+            num1 += current1.val +"" ;
+            current1 = current1.next ;
+        }
+         while(current2.next != null){
+              num2 += current2.val +"" ;
+            
+            current2 = current2.next ;
+        }
+        
+       
+
+        num1 += current1.val ;
+        num2 += current2.val +"";
+        
+        String n1 = "" ;
+        String n2 = "" ;
+
+    
+       for(int i = num1.length() - 1  ;i>=0 ;i--){
+          n1 += num1.charAt(i) + "" ;
+         
+       }
+         for(int i = num2.length() - 1  ;i>=0 ;i--){
+          n2 += num2.charAt(i) + "" ;
+         
+       }
+
+    //   System.out.println(n1) ;
+    //   System.out.println(n2) ;
+    //    System.out.println(n1) ;
+       long  n = Long.parseLong(n1) ;
+        long m = Long.parseLong(n2) ;
+
+        long total = n + m ;
+       String tot = total+ "" ;
+       int h1 = Integer.parseInt(tot.charAt(tot.length() - 1) + "") ;
+        ListNode head = new ListNode(h1) ;
+        ListNode head2 = head ;
+
+        for(int i = tot.length() - 2 ;i>=0 ;i--){
+            int h2 =  Integer.parseInt(tot.charAt(i) +"")  ;
+            head.next = new ListNode(h2) ; 
+            head = head.next ;
+           
+        }
+        return head2 ;
+    }
+}
+
+******************************************************************************************************
+
+
+ans 42 - 2)
+ACCEPTED - 
+
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    
+        ListNode current1 = l1 ;
+        ListNode current2 = l2 ;
+        ListNode head1 = new ListNode() ;
+        ListNode head2 = head1 ;
+       int carry = 0 ;
+
+       while(current1 != null){
+           if(current2 != null){
+            int num = current1.val + current2.val ;
+             if(carry ==1){
+                 num = num + 1 ;
+                 carry = 0 ;
+             }
+            if(num>9){
+                String num1 = num + "" ;
+                carry = 1 ;
+                num =  Integer.parseInt(num1.charAt(1) + "") ;
+                head1.val = num ;
+                if(current1.next == null){
+                    current2 = current2.next ;
+                   break ;
+               }
+                head1.next = new ListNode() ;
+                head1 = head1.next ;
+             
+            }else{
+               head1.val = num ;
+               if(current1.next == null){
+                   current2 = current2.next ;
+                   break ;
+               }
+               head1.next = new ListNode() ;
+               head1 = head1.next ;
+            }
+         current1 = current1.next ;
+         current2 = current2.next ;
+   
+           }else{
+               int curr1Num = current1.val ;
+                   if(carry == 1){
+                       curr1Num = curr1Num + 1 ;
+                       carry =0 ;
+                   }
+                if(curr1Num > 9 ){
+                     String curr1NumStr = curr1Num+ "" ;
+                      carry = 1 ;
+                     curr1Num = Integer.parseInt(curr1NumStr.charAt(1)+ "" ) ;
+                      head1.val = curr1Num ;
+                     if(current1.next == null){
+                   break ;
+               }
+               head1.next = new ListNode() ;
+               head1 = head1.next ;
+                    
+                }else{
+                     head1.val = curr1Num ;
+                     if(current1.next == null){
+                   break ;
+               }
+               head1.next = new ListNode() ;
+               head1 = head1.next ;
+
+                }
+                 current1 = current1.next ;
+           }
+          
+
+       }
+
+    if(carry == 1 && current2 == null){
+           head1.next = new ListNode(1) ;
+           carry =0 ;
+
+       }
+
+     while(current2 != null){
+            int curr2Num = current2.val ;
+            if(carry ==1){
+                curr2Num = curr2Num + 1;
+                carry = 0 ;
+            }
+
+            if(curr2Num > 9){
+            String curr2NumStr = curr2Num + "" ;
+            carry = 1 ;
+            curr2Num = Integer.parseInt(curr2NumStr.charAt(1) + "") ;
+             head1.next =new  ListNode(curr2Num) ;
+             head1 = head1.next ;
+              
+                            if(current2.next == null){
+                        break ;
+                    }
+                   
+
+            }else{
+
+             head1.next =new  ListNode(curr2Num) ;
+             head1 = head1.next ;
+                            if(current2.next == null){
+                        break ;
+                    }
+                  
+
+            }
+        current2 = current2.next ;
+     }
+
+     if(carry == 1){
+           head1.next = new ListNode(1) ;
+           carry =0 ;
+
+       }
+ 
+
+        return head2 ;
+    }
+}
+
+
+******************************************************************************************************
+ans 43)
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        HashMap<String , Integer> hm = new HashMap<>() ;
+        int maxLength = 0 ;
+        int pointer1 = 0 ;
+        int pointer2 = 0 ;
+
+        while(pointer1< s.length() ){
+          
+          if(hm.containsKey(s.charAt(pointer1) +"") ){
+             hm.remove(s.charAt(pointer2)  +"") ;
+             pointer2++ ;
+          }
+          else{
+              hm.put(s.charAt(pointer1)+"" , 1 ) ;
+           if(maxLength < hm.size() ){
+               maxLength = hm.size() ;
+           }
+
+              pointer1++ ;
+          }
+
+        }
+        return maxLength ;
+
+    }
+}
+******************************************************************************************************
+ans 44)
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+       int i =0 ;
+       int j =0 ;
+       int h =0 ;
+       int[] mergeArr = new int[nums1.length + nums2.length] ;
+        while(i<nums1.length && j<nums2.length){
+             if(nums1[i]<=nums2[j]){
+               mergeArr[h] = nums1[i];
+               h++;
+               i++ ;
+             }else{
+              mergeArr[h] = nums2[j];
+              h++ ;
+              j++ ;
+             }
+        }
+        while(i<nums1.length){
+            mergeArr[h] = nums1[i];
+            h++ ;
+            i++ ;
+        }
+        while(j<nums2.length){
+            mergeArr[h] = nums2[j] ;
+            h++ ;
+            j++ ;
+        }
+      int n = mergeArr.length ;
+      int mid =n/2 ;
+        
+      if(n%2==0){
+         double p = mergeArr[mid] ;
+         double q = mergeArr[mid - 1] ;
+          return (p+q)/2 ;
+       
+      }else{
+         return (double)mergeArr[mid];
+      }
+
+
+       
+    }
+}
+
+******************************************************************************************************
+ans 45)
+******************************************************************************************************
+ans 46)
+
+
+******************************************************************************************************
+ans 47)
+
+******************************************************************************************************
+ans 48)
+
+******************************************************************************************************
+ans 49)
+
+
+******************************************************************************************************
+ans 50)
+******************************************************************************************************
+ans 51)
+
+
+******************************************************************************************************
+ans 52)
+******************************************************************************************************
+ans 53)
+
+******************************************************************************************************
+ans 54)
+******************************************************************************************************
+ans 55)
+******************************************************************************************************
+ans 56)
+******************************************************************************************************
+ans 57)
+******************************************************************************************************
+ans 58)
+******************************************************************************************************
+ans 59)
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************
+
+
+******************************************************************************************************
+
+******************************************************************************************************    
