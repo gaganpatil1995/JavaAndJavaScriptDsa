@@ -1,0 +1,186 @@
+unit 1-
+sharing links(notion links)
+ -
+ (  https://false-trouser-16e.notion.site/Unit-1-Sharing-Links-4ee789ef0c93460593f2c48f8928fbb4  )
+
+GyanDhan link-
+(   https://www.gyandhan.com/skill_training/loans/8287/thankyou_isa_type  )
+
+list of electives link- 
+(     https://www.notion.so/List-of-Electives-d348552e96a24c9399a0bc4333332f91    )
+
+technical groccesary
+(   https://docs.google.com/document/d/1IoNRBcQZ2ShCFrgry3v4YnItCFBr26r3NKxZUzYkmuU/preview?pru=AAABfr_Fdto*Rfz50UV6YgQMqCcU3ORwag#   )
+
+
+
+
+///////////////////////////////////////////////unit2/////////////////////////////////////////////////
+
+
+input session- (   https://saber-columnist-50d.notion.site/Input-Taking-f9655e92dc0f47fa9c64d6edf313771c  )
+
+
+20 Habits -
+(     https://docs.google.com/spreadsheets/d/1XjgY_FwCZfQACA_-13dbm4WyDPqFJItffL9t41uPEDI/htmlview?pru=AAABf2eYS44*xCc7NTvx0f0IhG0C49Fn8w#   )
+
+
+Box shadow link_
+(   https://getcssscan.com/css-box-shadow-examples  )
+
+deployed link-
+(   https://app.netlify.com/sites/competent-nobel-403aed/overview  )
+
+input code javaScript(
+
+
+function runProgram(input){
+    
+    
+}
+
+
+ 
+
+if (process.env.USER === "") {
+  runProgram(``);
+} else {
+  process.stdin.resume();
+  process.stdin.setEncoding("ascii");
+  let read = "";
+  process.stdin.on("data", function (input) {
+    read += input;
+  });
+  process.stdin.on("end", function () {
+    read = read.replace(/\n$/, "");
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+  });
+  process.on("SIGINT", function () {
+    read = read.replace(/\n$/, "");
+    runProgram(read);
+    process.exit(0);
+  });
+}
+
+
+
+
+For JAVA
+//Enter code here
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.toList;
+
+
+public class Main {
+    
+	public static void subset(int n ,List<Integer> list) {
+   	 
+    	}
+    
+    
+	public static void main(String[] args) throws IOException {
+   	 
+    	BufferedReader bufferedReader = new BufferedReader(new   InputStreamReader(System.in));
+   	 
+    	int q = Integer.parseInt(bufferedReader.readLine().trim());
+   	    try {
+         	List<Integer> A = Stream.of(bufferedReader.readLine().trim().split(" "))
+                           	.map(Integer::parseInt)
+                           	.collect(Collectors.toList());  
+           	 
+         	subset(q,A);   
+           	 
+        	} catch (IOException ex) {
+            	throw new RuntimeException(ex);
+        	}
+   	 
+    	bufferedReader.close();
+	}
+}
+
+
+
+
+
+
+
+Separate code not part of boiler code
+
+String[] strArr = bf.readLine().trim().split(" ");
+
+    	int[] intArr = Arrays.stream(strArr).mapToInt(Integer::parseInt).toArray();
+
+)
+
+4 digit no required 
+Number.parseFloat(fans).toFixed(4)
+----------------------------------
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+replit link --{
+
+https://replit.com/repls
+
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+slack link ---{
+
+
+https://app.slack.com/client/T02SYTAHYSV/C02SHAHV2H3
+
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+unsplash link -https://unsplash.com/oauth/applications/324294
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+sorting number - 
+const points = [40, 100, 1, 5, 25, 10];
+
+// Sort the numbers in ascending order
+points.sort(function(a, b){return a-b});
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function greaterNeig(arr,n){
+   leftGreater(arr,n) ;
+    // R = rightGreater(arr,n) ;
+    
+}
+
+function leftGreater(arr,n){
+    stk =  []  ;
+    indx = [] ;
+     
+    for(let i=0 ;i<n ;i++){
+        
+        while(stk.length>0 && arr[i]>=arr[stk[stk.length-1]]){
+            stk.pop() ;
+    }
+    if(stk.length==0){
+        indx.push(-1) ;
+    }
+    else{
+        indx.push(stk[stk.length-1]);
+    }
+    stk.push(i)
+     
+  } 
+
+    
+}
+// function rightGreater(arr,n){
+    
+// }

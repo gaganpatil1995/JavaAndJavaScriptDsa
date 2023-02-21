@@ -1,0 +1,72 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+
+class comp implements Comparator<Integer>{
+    public int compare(Integer a,Integer b){
+        return b - a;
+    }
+}
+class Main{
+    public static void bfs(HashMap<Integer,List<Integer>> map,int start,int n){
+        Queue<Integer> q = new LinkedList<>();
+        q.add(start);
+        List<Integer> ans = new ArrayList<>();
+        boolean[] visited = new boolean[n];
+        Arrays.fill(visited,false);
+        while(!q.isEmpty()){
+            int element = q.remove();
+            List<Integer> temp = map.get(element);
+            for (Integer i : temp){
+                if (visited[i - 1] == false) q.add(i);
+            }
+            ans.add(element);
+            visited[element - 1] = true;
+        }
+        System.out.println(ans);
+    }
+    public static void dfs(HashMap<Integer,List<Integer>> map,int start,int n){
+        List<Integer> ans = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
+        stack.push(start);
+        boolean[] visited = new boolean[n];
+        Arrays.fill(visited,false);
+        while(!stack.isEmpty()){
+            int temp = stack.pop();
+            List<Integer> list = map.get(temp);
+            Collections.sort(list,new comp());
+            for (Integer i : list){
+                if (visited[i-1] == false) stack.push(i);
+            }
+            ans.add(temp);
+            visited[temp - 1] = true;
+        }
+        System.out.println(ans);
+    }
+    public static void createGraph(HashMap<Integer,List<Integer>> map,int n){
+        for (int i = 1;i<=n;i++){
+            map.put(i,new ArrayList<>());
+        }
+        return;
+    }
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int m = s.nextInt();
+        int[][] arr = new int[m][2];
+        for (int i = 0;i<m;i++){
+            arr[i][0] = s.nextInt();
+            arr[i][1] = s.nextInt();
+        }
+        HashMap<Integer,List<Integer>> map = new HashMap<>();
+        createGraph(map,n);
+        for (int i = 0;i<arr.length;i++){
+            int x = arr[i][0];
+            int y = arr[i][1];
+            map.get(x).add(y);
+            map.get(y).add(x);
+        }
+        bfs(map,1,n);
+    }
+}
